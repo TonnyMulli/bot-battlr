@@ -10,6 +10,7 @@ const botTypeClasses = {
 };
 
 function BotSpecs({ bot }) {
+  console.log("BotSpecs props:", bot);
   return (
     <div className="ui segment">
       <div className="ui two column centered grid">
@@ -52,19 +53,22 @@ function BotSpecs({ bot }) {
             </div>
             <button
               className="ui button fluid"
-              onClick={() =>
-                console.log("connect this to a function that shows all bots")
-              }
+              onClick={() => {
+                console.log("Go Back button clicked");
+                console.log("connect this to a function that shows all bots");
+              }}
             >
               Go Back
             </button>
             <button
               className="ui button fluid"
-              onClick={() =>
+              onClick={() => {
+                console.log("Enlist button clicked");
                 console.log(
                   "connect this to a function that adds this bot to your bot army list"
-                )
-              }
+                );
+                console.log("Bot:", bot);
+              }}
             >
               Enlist
             </button>

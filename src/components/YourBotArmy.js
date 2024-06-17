@@ -2,25 +2,34 @@ import React from "react";
 import BotCard from "./BotCard";
 
 function YourBotArmy({ bots, removeBot, deleteBot }) {
-  // Render BotCards for each bot in the army
-  const renderArmy = bots.map((bot) => (
-    <BotCard
-      key={bot.id}
-      bot={bot}
-      clickEvent={removeBot}
-      deleteBot={deleteBot}
-    />
-  ));
+  // Using React.memo to prevent unnecessary re-renders
+  const BotCardMemo = React.memo(BotCard);
 
-  // Display a segmented inverted olive bot-army
+  // Using React.Fragment for better performance
+  const renderArmy = (
+    <React.Fragment>
+      {bots.map((bot) => (
+        <BotCardMemo
+          key={bot.id}
+          bot={bot}
+          clickEvent={removeBot}
+          deleteBot={deleteBot}
+        />
+      ))}
+    </React.Fragment>
+  );
+
+  // Returning JSX directly
   return (
-    <div className="ui segment inverted olive bot-army">
-      <div className="ui five column grid">
-        <div className="row bot-army-row">
-          {renderArmy}
+    <>
+      <div className="ui segment inverted olive bot-army">
+        <div className="ui five column grid">
+          <div className="row bot-army-row">
+            {renderArmy}
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
