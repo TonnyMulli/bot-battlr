@@ -32,6 +32,5 @@ Harness the power of cutting-edge technologies:
 
 - **React**: Utilize the efficiency and flexibility of React for building a responsive user interface.
   
-- **Axios**: Employ Axios for smooth handling of asynchronous HTTP requests to interact with the JSON server.
 
 - **JSON Server**: Simulate a backend server with JSON Server to manage and serve bot data locally.
